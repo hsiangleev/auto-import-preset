@@ -135,6 +135,17 @@ export default {
 - 输出按字典序排序，与 ESM 模块命名空间对象的 key 顺序一致。
 - 写入时沿用已有文件的换行符与缩进，不会因为格式化产生无意义的 diff；输出目录不存在时自动创建。
 
+## 发布
+
+推 `v*` tag 即自动发布到 npm（[.github/workflows/publish.yml](.github/workflows/publish.yml)）：
+
+```bash
+npm version patch        # 或 minor / major，先改 package.json 版本号
+git push && git push --tags
+```
+
+认证走 npm **Trusted Publishing（OIDC）**，不需要任何 secret：首次发布前在 npmjs 上配置 Trusted Publisher（Owner = GitHub 账号，Repository = `auto-import-preset`，Workflow = `publish.yml`）。工作流会校验 tag 与 `package.json` 版本一致，`prepublishOnly` 会先跑一遍测试；也可以在 Actions 里手动触发（默认只预演：测试 + `npm pack --dry-run`）。
+
 ## License
 
 MIT
