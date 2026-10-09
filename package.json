@@ -1,7 +1,7 @@
 {
     "name": "auto-import-preset",
     "private": false,
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "从 TypeScript 入口文件生成 unplugin-auto-import 的 preset 名单；支持在导出定义处用 JSDoc 标记（默认 @noAutoImport）把内部导出排除在外。Generate an unplugin-auto-import preset from a TypeScript entry file, with per-declaration opt-out via JSDoc tags.",
     "type": "module",
     "license": "MIT",
